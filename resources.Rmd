@@ -1,0 +1,34 @@
+---
+title: "Data management"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Papers
+
+### Data organization in spreadsheets ([pdf](https://peerj.com/preprints/3183.pdf))
+
+Use spreadsheets for data entry and storage. Use a separate copy or program to reduce the risk of contaminating or destroying the raw data
+
+- **be consistent** 
+    - use consistent codes for categorical variables
+    - use consistent codes for missing data (avoid numeric codes!)
+    - use consistent variable names, subject identifiers, and filenames
+    - use a consistent layout
+    - use consistent date formats
+    - use consistent phrses in your notes (and keep them in a separate column!)
+    - be careful about extra spaces
+- **write dates like YYYY-MM-DD** or even better, keep your year/month/day in separate columns - read some Excel horror ([1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [3](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [2](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)) stores if you need convincing
+- **don't leave any cells empty**  
+- **put just one thing in a cell** 
+- **organize the data as a single rectangle** (with subjects as rows and  variables as columns, and with a single header row) - organize data into multiple rectangular tables if needed
+- **create a data dictionary** - metadata about data, including descriptions, units, expected min/max values, etc.
+- **don't include calculations in the raw data files** - you may accidentally overwrite or delete something so keep your raw data pristine
+- **don't use font color or highlighting as data** - use a new column to store information; only use highlighting to emphasize data that already exists in text form
+- **choose good names for things** - 
+- **make backups** and write-protect your raw data before proceeding with analyses - keep all versions of your data  
+- **use data validation to avoid data entry errors** - try the [data validation tool](https://support.office.com/en-us/article/apply-data-validation-to-cells-29fecbcc-d1b9-42c1-9d76-eff3ce5f7249?redirectSourcePath=%252fen-us%252farticle%252fApply-data-validation-to-cells-c743a24a-bc48-41f1-bd92-95b6aeeb73c9&ui=en-US&rs=en-US&ad=US) in Excel and convert dates to text
+- **save the data in plain text files** - usel non-proprietary file formats such as csv (comma separated values) or tsv (tab separated values) 
