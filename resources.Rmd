@@ -7,6 +7,76 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Online tutorials
+
+### Data Organization in Spreadsheets for Ecologists
+
+#### Formatting data tables in Spreadsheets ([link](https://datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/))
+
+Spreadsheets =/= lab notebooks
+
+We have to set up our data for the computer to be able to understand it.
+
+- don't modify your original dataset (keep raw data pristine!)
+- keep track of cleaning and analysis steps
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/spreadsheet-setup-updated.png)
+
+Structuring data in spreadsheets:
+
+- put all variables (things you measure) in columns
+- put each observation in a row
+- don't combine multiple pieces of information in one cell
+- leave the raw data raw!!
+- export data to a text-based (non-proprietary) format
+
+[messy data example](https://ndownloader.figshare.com/files/2252083)
+
+**Don't confuse the computer**
+
+Computers see each row as an observations; multiple tables will confuse the computer
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/2_datasheet_example.jpg)
+
+Think carefully before using multiple tabs. Can you add another column to avoid repeating headers?
+
+Record 0s as 0s and NULLs as NULLs; don't use numeric values for missing data. 
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/3_white_table_1.jpg)
+
+_Source:_ https://peerj.com/preprints/7/
+
+Don't use formatting to convey information
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/formatting.png) versus ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/good_formatting.png)
+
+Don't merge cells
+
+Enter ONE piece of information in a cell; don't combine information ("4-F, 5-M, 3-F") or add units ("22 cm, .4 m") or include comments ("32 (check this value...machine broken that day?)")[^2]
+
+[^2]: This also means don't mix Hebrew and English unless you want to deal with the resulting balagan
+
+Ideally, use names that are lower case and separated with underscores: `max_temp` instead of `Maximum Temp (°C)`. [^1] Avoid special characters
+
+[^1]: In R, you can use the `clean_names()` function from the [janitor](https://github.com/sfirke/janitor) package to reformat names for you!
+
+Include metadata in a separate (plain text) file
+
+#### Dates as data
+
+Be wary of dates in Excel
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/5_excel_dates_1.jpg)
+
+Best to:
+
+- separate into month, date, year columns
+- store dates as year, day of year
+- store dates as a single string
+- use underscores
+
+Use the quality assurance features in Excel! (_after_ making a copy of the original data)
+
 ## Papers
 
 ### Data organization in spreadsheets ([pdf](https://peerj.com/preprints/3183.pdf))
@@ -19,7 +89,7 @@ Use spreadsheets for data entry and storage. Use a separate copy or program to r
     - use consistent variable names, subject identifiers, and filenames
     - use a consistent layout
     - use consistent date formats
-    - use consistent phrses in your notes (and keep them in a separate column!)
+    - use consistent phrases in your notes (and keep them in a separate column!)
     - be careful about extra spaces
 - **write dates like YYYY-MM-DD** or even better, keep your year/month/day in separate columns - read some Excel horror ([1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [3](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [2](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)) stores if you need convincing
 - **don't leave any cells empty**  
