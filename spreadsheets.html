@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spreadsheets</title>
+    <meta charset="utf-8">
+    <meta name="date" content="2018-11-10" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Spreadsheets
+## EcoDataSci-TLV
+### 2018-11-10
+
+---
+
+
+
+
+This presentation is based on:
+
+- [Data Organization in Spreadsheets for Ecologists](https://datacarpentry.org/spreadsheet-ecology-lesson/) from Data Carpentry
+- [Data organization in spreadsheets](https://peerj.com/preprints/3183.pdf) by Kara Woo and Karl Broman
+
+---
+
+class: inverse, center, middle
+
+# Spreadsheets `\(\neq\)` lab notebooks
+
+---
+# Use the right tool for the job
+
+- data entry: spreadsheet (csv, tsv, xlsx)
+- storage: plain text file (csv, tsv, txt)
+- metadata: data dictionary (csv, tsv, txt, xlsx)
+- cleaning/analysis: code (R, py) _or_ a copy of your raw data with additional steps detailed in a README
+
+---
+# Keep raw data raw
+
+Keep data _separate_ from calculations and analyses
+
+If your data organization isn't perfect, that's okay! Make a _copy_ of your data if you want to make changes to avoid contaminating your original data
+
+Adopt the best practices _moving forward_
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/spreadsheet-setup-updated.png)
+
+---
+# Organize data as a single rectangle
+
+Separate tables into different sheets _or_ reorganize your data to fit into one rectangle
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/2_datasheet_example.jpg)
+
+
+---
+# Create a data dictionary
+
+
+---
+
+# Missing values
+
+Use `NA`, `NULL`, or even `-` to represent missing values. Avoid numeric values (-999 or 999) and blanks
+
+![](img/blanks-bad.png)
+&gt; _Note:_ `fill()` from the `tidyr` package is a handy function for dealing with blanks in data
+
+---
+![](img/blanks-good.png)
+---
+
+# Don't use formatting to store information
+
+.pull-left[
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/formatting.png) 
+]
+
+.pull-right[
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/good_formatting.png)
+]
+---
+# Enter ONE piece of information per cell
+
+
+```r
+tibble(species_sex = c("AA-F", "AA-M", "AB-M"),
+       tail_length = c("4.4 cm", "43 cm - check??", "6.1 cm"))
+```
+
+```
+## # A tibble: 3 x 2
+##   species_sex tail_length    
+##   &lt;chr&gt;       &lt;chr&gt;          
+## 1 AA-F        4.4 cm         
+## 2 AA-M        43 cm - check??
+## 3 AB-M        6.1 cm
+```
+
+--
+
+- don't combine information
+- don't add units (or use a separate column if needed)
+- don't mix data and comments
+- avoid mixing English and עברית 
+
+---
+# Choose good names
+
+Instead of `Maximum Temp (°C)`, use `max_temp`. Store extra information in a data dictionary
+
+Tip: In R, the `clean_names()` function from the [janitor](https://github.com/sfirke/janitor) package will reformat names for you! 
+
+
+```r
+library(tidyverse)
+tibble(`Field sites!` = c("A", "B", "B"),
+       `Max temp (C)` = c(32, 33, 35)) %&gt;%
+    janitor::clean_names()
+```
+
+```
+## # A tibble: 3 x 2
+##   field_sites max_temp_c
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 A                   32
+## 2 B                   33
+## 3 B                   35
+```
+
+---
+# Beware of dates
+
+Excel dates depend on your operating system, Excel version, and locale. 
+
+![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/5_excel_dates_1.jpg)
+
+_Read some horror stories if you need convincing: [1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [3](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [2](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)_
+
+--
+
+Best to use one of these options:
+
+- separate into month, date, year columns
+- store dates as year, day of year
+- store dates as a single string YYYYMMDD
+- use underscores
+
+---
+# QA your data
+
+Make a **copy** of your data to avoid messing up your real data
+
+Try the [data validation tool](https://support.office.com/en-us/article/apply-data-validation-to-cells-29fecbcc-d1b9-42c1-9d76-eff3ce5f7249?redirectSourcePath=%252fen-us%252farticle%252fApply-data-validation-to-cells-c743a24a-bc48-41f1-bd92-95b6aeeb73c9&amp;ui=en-US&amp;rs=en-US&amp;ad=US) in Excel
+
+---
+# Make backups
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
