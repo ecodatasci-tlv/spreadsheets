@@ -3,7 +3,7 @@
   <head>
     <title>Spreadsheets</title>
     <meta charset="utf-8">
-    <meta name="date" content="2018-11-10" />
+    <meta name="date" content="2018-11-11" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
@@ -13,7 +13,7 @@ class: center, middle, inverse, title-slide
 
 # Spreadsheets
 ## EcoDataSci-TLV
-### 2018-11-10
+### 2018-11-11
 
 ---
 
@@ -24,6 +24,7 @@ This presentation is based on:
 
 - [Data Organization in Spreadsheets for Ecologists](https://datacarpentry.org/spreadsheet-ecology-lesson/) from Data Carpentry
 - [Data organization in spreadsheets](https://peerj.com/preprints/3183.pdf) by Kara Woo and Karl Broman
+- [Some Simple Guidelines for Effective Data Management](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9623-90.2.205) by Elizabeth T. Borer, Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer
 
 ---
 
@@ -35,16 +36,16 @@ class: inverse, center, middle
 # Use the right tool for the job
 
 - data entry: spreadsheet (csv, tsv, xlsx)
-- storage: plain text file (csv, tsv, txt)
-- metadata: data dictionary (csv, tsv, txt, xlsx)
-- cleaning/analysis: code (R, py) _or_ a copy of your raw data with additional steps detailed in a README
+- storage: plain text file (csv, tsv)
+- metadata: data dictionary (csv, tsv, xlsx)
+- cleaning/analysis: code (R, py) _or_ a copy of your raw data with additional steps detailed in a CHANGELOG
 
 ---
 # Keep raw data raw
 
-Keep data _separate_ from calculations and analyses
+&gt;Always store an uncorrected data file with all its bumps and warts. Do not make any corrections to this file; make corrections within a scripted language. ([Borer et al. 2009](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9623-90.2.205))
 
-If your data organization isn't perfect, that's okay! Make a _copy_ of your data if you want to make changes to avoid contaminating your original data
+--
 
 Adopt the best practices _moving forward_
 
@@ -53,10 +54,27 @@ Adopt the best practices _moving forward_
 ---
 # Organize data as a single rectangle
 
-Separate tables into different sheets _or_ reorganize your data to fit into one rectangle
+Separate tables into different sheets _or_ reorganize your data to fit into one rectangle. All cells in a column should be the same type (text, numeric, etc.)
 
 ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/2_datasheet_example.jpg)
 
+---
+# Don't repeat yourself (too much)
+
+.pull-left[
+If you find yourself copying information a lot, consider reorganizing your data into separate tables (i.e. as a _relational database_).
+
+Single table:
+![](https://wol-prod-cdn.literatumonline.com/cms/attachment/a5ff59fc-0cba-40fb-a293-43576d2840cb/i0012-9623-90-2-205-t1011.jpg)
+]
+
+.pull-right[
+Sites:
+![](https://wol-prod-cdn.literatumonline.com/cms/attachment/c85e7ecf-5f7a-4b6b-929e-07242d21cb28/i0012-9623-90-2-205-t1012.jpg)
+
+Diseases:
+![](https://wol-prod-cdn.literatumonline.com/cms/attachment/4bf63d2a-04c2-4937-a1ad-54a5fda7d2e5/i0012-9623-90-2-205-t1013.jpg)
+]
 
 ---
 # Create a data dictionary
@@ -160,6 +178,17 @@ Try the [data validation tool](https://support.office.com/en-us/article/apply-da
 
 ---
 # Make backups
+
+.pull-left[
+![](img/write-protect.PNG)
+]
+
+.pull-right[
+- _Write-protect_ files once you are done entering in data
+- Store copies of data in different locations (cloud, home, lab)
+- Keep all versions of data files (unless they can be reproduced with scripts) 
+- Use version control
+]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
