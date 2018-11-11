@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Version control</title>
+    <meta charset="utf-8">
+    <meta name="date" content="2018-11-11" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Version control
+## EcoDataSci-TLV
+### 2018-11-11
+
+---
+
+
+
+This presentation is based on:
+
+http://ohi-science.org/data-science-training/github.html
+
+---
+# Does this look familiar? 
+
+&lt;p align = 'center'&gt;![](http://ohi-science.org/data-science-training/img/MessySaves.png)
+
+---
+
+# Why learn and use GitHub? 
+
+- Version control
+- Easy to share/distribute files (especially code/analyses)
+- Files accessible from anywhere with an internet connection
+- Improves collaboration
+
+---
+# <i class="fab  fa-git "></i>
+
+Version control system that lives on your computer. Think "track changes" for files. 
+
+[Installation instructions](http://happygitwithr.com/installation-pain.html)
+
+---
+# GitHub <i class="fab  fa-github "></i>
+
+"Dropbox" for git-based projects on the internet. 
+
+- browse source code ([CRAN](https://github.com/cran),  [tidyverse](https://github.com/tidyverse/), [rOpenSci](https://github.com/ropensci))
+- use packages not on CRAN (`devtools::install_github("account/repo")`)
+- share/store analyses and functions
+- browse past versions of code
+- host web pages
+
+--
+
+You get unlimited private GitHub repositories for _free_ (normally $7/month) while you are a student! Sign up [here](https://education.github.com/pack).
+
+---
+# GitHub terminology
+
+- **repository** - project/folder <i class="fas  fa-folder "></i>
+- **local** - files stored on your computer <i class="fas  fa-file-code "></i> <i class="fas  fa-file-image "></i> <i class="fas  fa-file-excel "></i>
+- **remote** - files on github.com <i class="fab  fa-github "></i>
+- **clone** - local copy of a GitHub repository
+
+---
+background-image: url(http://ohi-science.org/data-science-training/img/push_pull_clone.png)
+background-position: center
+background-size: 50%
+---
+class: inverse, center, middle
+
+# Create a GitHub repository
+
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/create_repository_2.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/clone_step1.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/new_project_1.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/new_project_2.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/new_project_3.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/new_project_4.png)
+background-position: center
+background-size: 100%
+---
+
+class: inverse, center, middle
+
+# Inspect your repository
+
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/RStudio_IDE_git.png)
+background-position: center
+background-size: 100%
+---
+
+class: center, middle
+
+![](img/version-control-rstudio-cheatsheet.PNG)
+
+http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf
+---
+# Sync from RStudio to GitHub
+
+![](http://ohi-science.org/data-science-training/img/commit_overview.png)
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/pull.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/staged.png)
+background-position: center
+background-size: 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/commit.png)
+background-position: center
+background-size: auto 100%
+---
+class: inverse
+background-image: url(http://ohi-science.org/data-science-training/img/push.png)
+background-position: center
+background-size: 100%
+---
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
