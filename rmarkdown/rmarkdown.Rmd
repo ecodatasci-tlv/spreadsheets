@@ -1,0 +1,29 @@
+---
+title: "RMarkdown"
+subtitle: "EcoDataSci-TLV"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "custom-fonts.css"]
+    chakra: "libs/remark-latest.min.js"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+---
+
+# What is RMarkdown
+
+
+File type that allows you to mix text, code, and images.
+
+You've probably already encountered several examples of this:
+
+- as webpages
+- in book form
+- as PDFs
+- as presentations (like this one!)
+---
+
+# Basic syntax
+
