@@ -3,7 +3,7 @@
   <head>
     <title>Version control</title>
     <meta charset="utf-8">
-    <meta name="date" content="2018-11-14" />
+    <meta name="date" content="2018-11-15" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom-fonts.css" type="text/css" />
@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # Version control
 ## EcoDataSci-TLV
-### 2018-11-14
+### 2018-11-15
 
 ---
 
@@ -24,10 +24,12 @@ This presentation is based on:
 
 http://ohi-science.org/data-science-training/github.html
 
----
-# Does this look familiar? 
+&amp; https://nceas.github.io/training-git-intro/getting-started-with-git-rstudio.html
 
-&lt;p align = 'center'&gt;![](http://ohi-science.org/data-science-training/img/MessySaves.png)
+---
+background-image: url(http://www.phdcomics.com/comics/archive/phd101212s.gif)
+background-position: center
+background-size: auto 100%
 
 ---
 
@@ -54,6 +56,14 @@ Version control system that lives on your computer. Think "track changes" for fi
 
 --
 &lt;p&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Cropped-big-brother-is-watching-1984.png/800px-Cropped-big-brother-is-watching-1984.png" width=60%&gt;
+
+---
+# <i class="fab  fa-git "></i> is not
+
+- a full backup
+- meant for data, images, etc
+
+git works best with _text-based_ files!
 
 ---
 # GitHub <i class="fab  fa-github "></i>
@@ -139,9 +149,9 @@ background-position: center
 background-size: 100%
 ---
 class: inverse
-background-image: url(http://ohi-science.org/data-science-training/img/new_project_4.png)
-background-position: center
-background-size: 100%
+background-image: url(https://media.giphy.com/media/vt4gALQsxCDmM/giphy.gif), url(http://ohi-science.org/data-science-training/img/new_project_4.png)
+background-position: bottom right, center
+background-size: 30%, 100%
 
 ---
 class: inverse, center, middle
@@ -160,6 +170,24 @@ You now have a GitHub PROJECT!
 &lt;img src="img/github-proj.png" width=80%&gt;
 
 https://speakerdeck.com/jennybc/workflow-you-should-have-one
+
+---
+# What's the deal with projects?
+
+Each project is a self-contained set of files. Projects make it **easy to transfer** files to another computer because its **boundaries are clearly defined**.  
+
+--
+
+Want to import a data file?  Use a relative path:
+
+
+```r
+read.csv("data/eilat_survey_2017.csv")
+#rather than
+read.csv("C:/חזי/phd/thesis/reef_surveys/data/eilat_survey_2017.csv")
+```
+
+You never have to use `setwd()` again! 
 
 ---
 class: center, middle
@@ -188,9 +216,12 @@ class: inverse, center, middle
 ![](https://media.giphy.com/media/3QAUnTsafSMQE/giphy.gif)
 ---
 # Finally, you **push** out babies 
-## (or **push** them away...)
 
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Egg_laying_-_Harmonia_axyridis_%282127209595%29.jpg" width=80%&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Egg_laying_-_Harmonia_axyridis_%282127209595%29.jpg" width=50%&gt; 
+
+--
+
+## (or **push** them away...) &lt;img src="https://media.giphy.com/media/7vzG5HU8nE2pCJbUGj/giphy.gif" width =50%&gt;
 ---
 background-image: url(http://ohi-science.org/data-science-training/img/push_pull_clone.png)
 background-position: center
@@ -244,12 +275,14 @@ Switch over to your _neighbor's_ repo:
 
 ...but we'll cover these next time.  In the mean time,  check out these resources for step-by-step guides for:
 
+- using `gitignore` to tell git what NOT to track
 - dealing with merge conflicts
 - collaborating using forks and branches
 - burning it all down &amp; starting afresh
 
-http://happygitwithr.com  
-http://ohi-science.org/data-science-training/github.html
+[Happy Git with R](http://happygitwithr.com)  
+[NCEAS GitHub crash course](https://nceas.github.io/training-git-intro/getting-started-with-git-rstudio.html)  
+[Ocean Health Index GitHub training](http://ohi-science.org/data-science-training/github.html)
     </textarea>
 <script src="libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
