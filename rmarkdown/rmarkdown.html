@@ -54,9 +54,10 @@ background-position: center
 background-size: 100%
 ---
 # __The different parts of Rmarkdown__
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/ecodatasci-tlv/datamanagement/master/rmarkdown/inline-1-heat.png" width=100%&gt;
 
 ---
-## The YAML header 
+## YAML header 
 
 - Must be enclosed in `---`
 - output section changes based on the type of ducument
@@ -70,6 +71,20 @@ output: html_document
 ---
 
 ```
+---
+## Code chunk
+
+- The chink must be enclosed between ` ``` ` and then `{r}` at the top
+- keybord shortcut: ctrl + Alt + I (Windows) or cmd + Alt + I (MacOS)
+
+
+```
+
+```r
+norm &lt;- rnorm(100, mean = 0, sd = 1)
+```
+````
+
 
 
 ---
