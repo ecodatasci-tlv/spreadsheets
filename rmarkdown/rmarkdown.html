@@ -4,7 +4,6 @@
     <title>Rmarkdown</title>
     <meta charset="utf-8">
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom-fonts.css" type="text/css" />
   </head>
   <body>
@@ -78,10 +77,7 @@ output: html_document
 - keybord shortcut: ctrl + Alt + I (Windows) or cmd + Alt + I (MacOS)
 
 
-
-```r
-norm &lt;- rnorm(100, mean = 0, sd = 1)
-```
+&lt;p&gt;&lt;img src="https://tinyurl.com/ybpbbe4f" width=100%&gt;
 
 
 
@@ -108,34 +104,44 @@ You create an Rmd file, then you knit it with knitr package, it is passed to one
 Congradulations!!! 🎉 🎊 🥳 You created your first Rmd file!! 😄
 
 ---
+class: inverse, center, middle
+
 # __Rmd plain text syntax__
+---
+
+# __Headers__
+
 
 ```r
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-
-Alternatively, for H1 and H2, an underline-ish style:
-
-Alt-H1
-======
-
-Alt-H2
-------
+# Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
 ```
 
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+---
+# Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
 
-Alternatively, for H1 and H2, an underline-ish style:
+---
+## Alternatively, for H1 and H2, an underline-ish style:
+
+```
+
+Alt-H1
+======
+
+Alt-H2
+------
+
+```
 
 Alt-H1
 ======
@@ -144,13 +150,18 @@ Alt-H2
 ------
 
 ---
-# GitHub terminology
 
-- **repository** or repo - project/folder <i class="fas  fa-folder "></i>
-- **local** - files stored on your computer <i class="fas  fa-file-code "></i> <i class="fas  fa-file-image "></i> <i class="fas  fa-file-excel "></i>
-- **remote** - files on github.com <i class="fab  fa-github "></i>
+# Highlight text
 
----
+
+
+__Bold text__ ` __Bold__` or ` **Bold** `
+
+---_Italics_ ` _Italics_ ` or ` *Italics* `
+
+`code` is by using ``code``
+
+
 class: inverse, center, middle
 
 # GitHub: let's get oriented!  
