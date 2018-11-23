@@ -75,7 +75,7 @@ output: html_document
 
 ```
 ---
-## Code chunk
+## Code chunk (Fix this)
 
 - The chink must be enclosed between ` ``` ` and then `{r}` at the top
 - keybord shortcut: ctrl + Alt + I (Windows) or cmd + Alt + I (MacOS)
@@ -88,39 +88,66 @@ norm <- rnorm(100, mean = 0, sd = 1)
 
 
 ---
-# `r fa_git()`
+## __Plain text__
 
-Version control system that lives on your computer. Think "track changes" for files. ([installation instructions](http://happygitwithr.com/installation-pain.html)) 
-
---
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Cropped-big-brother-is-watching-1984.png/800px-Cropped-big-brother-is-watching-1984.png" width=60%>
+Here you write everything that isn't a code by using markdown related symbols to create headers, bold text , etc.
 
 ---
-# `r fa_git()` is not
+## __Workflow of Rmd file__
 
-- a full backup
-- meant for data, images, etc
+<p><img src="https://tinyurl.com/ycgusx7u" width=100%>
 
-git works best with _text-based_ files!
-
----
-# GitHub `r fa_github()`
-
-"Dropbox" for git-based projects on the internet. 
-
-- share/store analyses and functions
-- browse past versions of code
-- browse source code ([CRAN](https://github.com/cran),  [tidyverse](https://github.com/tidyverse/), [rOpenSci](https://github.com/ropensci))
-- use packages not on CRAN (`devtools::install_github("account/repo")`)
-- host web pages  
---
-<br>  
-You get unlimited private GitHub repositories for _free_ (normally $7/month) while you are a student! Sign up [here](https://education.github.com/pack).
+You create an Rmd file, then you knit it with knitr package, it is passed to one of the rendering packages like pandoc or LaTex, and the final format is created
 
 ---
-background-image: url(http://ohi-science.org/data-science-training/img/commit_compare_3.png)
-background-position: center
-background-size: auto 100%
+# __Practice time__
+
+1. Open an Rmd file in the project you created before
+2. Choose the type of document you want to create
+3. Write some plain text and some analyses in the code chunk
+4. Click on the knit botton at the top bar
+
+Congradulations!!! 🎉 🎊 🥳 You created your first Rmd file!! `r emo::ji("smile")`
+
+---
+class: inverse, center, middle
+
+# __Rmd plain text syntax__
+---
+
+# __Headers__
+```r
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+```
+
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
 
 ---
 # GitHub terminology
