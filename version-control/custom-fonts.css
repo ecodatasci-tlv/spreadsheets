@@ -31,3 +31,8 @@
     right: 5px;
     bottom: 10px; 
 }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
