@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
+    css: ["default", "custom-fonts.css"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -20,29 +21,41 @@ This presentation is based on:
 - [Data Organization in Spreadsheets for Ecologists](https://datacarpentry.org/spreadsheet-ecology-lesson/) from Data Carpentry
 - [Data organization in spreadsheets](https://peerj.com/preprints/3183.pdf) by Kara Woo and Karl Broman
 - [Some Simple Guidelines for Effective Data Management](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9623-90.2.205) by Elizabeth T. Borer, Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer
+- [5½ Reasons to Ditch Spreadsheets for Data Science: Code is Poetry](https://lucidmanager.org/spreadsheets-for-data-science/) by Peter Prevos
 
 ---
-
+class: center, middle
+background-image: url(https://i1.wp.com/lucidmanager.org/wp-content/blogs.dir/4/files/sites/4/2018/11/SpreadsheetChaos.jpg?w=1810&ssl=1)
+background-position: center
+background-size: 100% auto
+---
 class: inverse, center, middle
 
 # Spreadsheets $\neq$ lab notebooks
 
 ---
-# Use the right tool for the job
+## Pros `r icon::fa_smile()`
 
-- data entry: spreadsheet (csv, tsv, xlsx)
-- storage: plain text file (csv, tsv)
-- metadata: data dictionary (csv, tsv, xlsx)
-- cleaning/analysis: code (R, py) _or_ a copy of your raw data with additional steps detailed in a CHANGELOG
+- quick, easy to use
+- pulls together data, analysis, plots
+- good for storing many small datasets
+- data validation tools
 
+## Cons `r icon::fa_frown()` 
+
+- unclear chronology
+- difficult to separate data, code, output
+- easy to make mistakes: overwrite data, faulty formulas, incomplete cells
+
+---
+class: center, inverse, middle
+# Adopt the best practices _moving forward_
 ---
 # Keep raw data raw
 
 >Always store an uncorrected data file with all its bumps and warts. Do not make any corrections to this file; make corrections within a scripted language. ([Borer et al. 2009](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9623-90.2.205))
 
 --
-
-Adopt the best practices _moving forward_
 
 ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/spreadsheet-setup-updated.png)
 
@@ -74,6 +87,7 @@ Diseases:
 ---
 # Create a data dictionary
 
+![](img/data-dict.png)
 
 ---
 
@@ -82,13 +96,14 @@ Diseases:
 Use `NA`, `NULL`, or even `-` to represent missing values. Avoid numeric values (-999 or 999) and blanks
 
 ![](img/blanks-bad.png)
-> _Note:_ `fill()` from the `tidyr` package is a handy function for dealing with blanks in data
+
+--
+
+_Note:_ `fill()` from the `tidyr` package is a handy function for dealing with blanks in data
 
 ---
-![](img/blanks-good.png)
----
 
-# Don't use formatting to store information
+## Don't use formatting to store information
 
 .pull-left[
 ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/formatting.png) 
@@ -96,53 +111,56 @@ Use `NA`, `NULL`, or even `-` to represent missing values. Avoid numeric values 
 
 .pull-right[
 ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/good_formatting.png)
+
+Add an extra column if you need to!
 ]
 ---
 # Enter ONE piece of information per cell
 
-```{r echo = TRUE}
+```{r echo = FALSE}
 tibble(species_sex = c("AA-F", "AA-M", "AB-M"),
-       tail_length = c("4.4 cm", "43 cm - check??", "6.1 cm"))
+       tail_length = c("4.4 cm", "43 cm - check??", "6.1 cm")) %>% 
+  DT::datatable(rownames = FALSE, options = list(dom = 't'))
 ```
-
---
-
-- don't combine information
-- don't add units (or use a separate column if needed)
-- don't mix data and comments
-- avoid mixing English and עברית 
 
 ---
 # Choose good names
 
-Instead of `Maximum Temp (°C)`, use `max_temp`. Store extra information in a data dictionary
+During analysis, some names are easier to deal with than others:
 
-Tip: In R, the `clean_names()` function from the [janitor](https://github.com/sfirke/janitor) package will reformat names for you! 
+- short but descriptive
+- lower case
+- no spaces
+- no special characters
+
+---
+# Choose good names
+
+The `clean_names()` function from the [janitor](https://github.com/sfirke/janitor) package will reformat names for you! 
 
 ```{r}
-library(tidyverse)
 tibble(`Field sites!` = c("A", "B", "B"),
        `Max temp (C)` = c(32, 33, 35)) %>%
     janitor::clean_names()
 ```
 
+.bottom-right[
+![](https://github.com/sfirke/janitor/raw/master/man/figures/logo_small.png) 
+]
 ---
 # Beware of dates
 
-Excel dates depend on your operating system, Excel version, and locale. 
+Excel dates depend on your operating system, Excel version, and locale. (_horror stories_: [1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [2](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [3](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)_)
 
 ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/5_excel_dates_1.jpg)
 
-_Read some horror stories if you need convincing: [1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [3](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [2](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)_
-
 --
 
-Best to use one of these options:
+Avoid problems by:
 
-- separate into month, date, year columns
-- store dates as year, day of year
-- store dates as a single string YYYYMMDD
-- use underscores
+- separating dates into month, date, year columns
+- storing dates as year, day of year
+- storing dates as a single string YYYYMMDD or with underscores YYYY_MM_DD
 
 ---
 # QA your data
@@ -164,3 +182,41 @@ Try the [data validation tool](https://support.office.com/en-us/article/apply-da
 - Keep all versions of data files (unless they can be reproduced with scripts) 
 - Use version control
 ]
+
+---
+# Be consistent!
+
+Make it easy for the machine, and the machine will make it easy for you!
+
+![](https://media.giphy.com/media/n1JN4fSrXovJe/giphy.gif)
+
+---
+
+- keep raw data raw
+- organize data as a single rectangle
+- don't repeat yourself (too much)
+- create a data dictionary
+- use NA, NULL, or - to represent missing values
+- don't use formatting to store information
+- enter ONE piece of information per cell
+- choose good names
+- beware of dates
+- QA your data
+- make backups
+- be consistent!
+
+---
+
+background-image: url(https://media.giphy.com/media/AhAysobj49aqQ/giphy.gif)
+background-position: center
+background-size: 100% auto
+
+---
+
+# Exercise
+
+Download the Excel file from [this dataset](https://github.com/weecology/portal-teachingdb/blob/master/survey_data_spreadsheet_messy.xls)
+
+- What problems do you see in the dataset?
+- How would you wrangle the data?
+- Read it into R ([readxl](https://readxl.tidyverse.org/)) and see what you can do 
