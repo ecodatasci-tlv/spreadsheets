@@ -150,7 +150,7 @@ tibble(`Field sites!` = c("A", "B", "B"),
 ---
 # Beware of dates
 
-Excel dates depend on your operating system, Excel version, and locale. (_horror stories_: [1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [2](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [3](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)_)
+Excel dates depend on your operating system, Excel version, and locale. (_horror stories: [1](https://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/), [2](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/), [3](https://practicaldatamanagement.wordpress.com/2014/07/02/dealing-with-dates-as-data-in-excel/)_)
 
 ![](https://datacarpentry.org/spreadsheet-ecology-lesson/fig/5_excel_dates_1.jpg)
 
